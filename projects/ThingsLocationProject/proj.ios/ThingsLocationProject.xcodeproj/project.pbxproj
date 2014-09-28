@@ -249,6 +249,7 @@
 		8A1C812D19D810CC00253A88 /* CAppCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C812B19D810CC00253A88 /* CAppCore.cpp */; };
 		8A1C813619D8116A00253A88 /* CAppData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C813419D8116A00253A88 /* CAppData.cpp */; };
 		8A1C813A19D811DB00253A88 /* CGPSPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C813819D811DB00253A88 /* CGPSPoint.cpp */; };
+		8A1C814219D856A300253A88 /* CGPSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C814019D856A300253A88 /* CGPSManager.cpp */; };
 		8AC6BE9619D2F07E001CD6A7 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */; };
 		8AC6BEA619D2F12F001CD6A7 /* CNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9819D2F12F001CD6A7 /* CNotificationCenter.cpp */; };
 		8AC6BEA719D2F12F001CD6A7 /* CBufferReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9B19D2F12F001CD6A7 /* CBufferReader.cpp */; };
@@ -796,6 +797,10 @@
 		8A1C813519D8116A00253A88 /* CAppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAppData.h; sourceTree = "<group>"; };
 		8A1C813819D811DB00253A88 /* CGPSPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGPSPoint.cpp; sourceTree = "<group>"; };
 		8A1C813919D811DB00253A88 /* CGPSPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPSPoint.h; sourceTree = "<group>"; };
+		8A1C813F19D853C600253A88 /* IGPSObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGPSObserver.h; sourceTree = "<group>"; };
+		8A1C814019D856A300253A88 /* CGPSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGPSManager.cpp; sourceTree = "<group>"; };
+		8A1C814119D856A300253A88 /* CGPSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPSManager.h; sourceTree = "<group>"; };
+		8A1C814319D8587B00253A88 /* GPSTargetsId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSTargetsId.h; sourceTree = "<group>"; };
 		8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		8AC6BE9419D2F07E001CD6A7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8AC6BE9519D2F07E001CD6A7 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacros.h; sourceTree = "<group>"; };
@@ -1982,6 +1987,8 @@
 				8A1C813119D8112800253A88 /* IAppCore.h */,
 				8A1C813219D8112800253A88 /* IGPSControllerNative.h */,
 				8A1C813319D8114E00253A88 /* IGPSManager.h */,
+				8A1C813F19D853C600253A88 /* IGPSObserver.h */,
+				8A1C814319D8587B00253A88 /* GPSTargetsId.h */,
 			);
 			path = interface;
 			sourceTree = "<group>";
@@ -2007,6 +2014,8 @@
 				8A1C812C19D810CC00253A88 /* CAppCore.h */,
 				8A1C813419D8116A00253A88 /* CAppData.cpp */,
 				8A1C813519D8116A00253A88 /* CAppData.h */,
+				8A1C814019D856A300253A88 /* CGPSManager.cpp */,
+				8A1C814119D856A300253A88 /* CGPSManager.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -2225,6 +2234,7 @@
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15C0B55B196D412F007F909D /* CCDatas.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
+				8A1C814219D856A300253A88 /* CGPSManager.cpp in Sources */,
 				8AC6BEA819D2F12F001CD6A7 /* CBufferWriter.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
