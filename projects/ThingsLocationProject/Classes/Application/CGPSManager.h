@@ -36,7 +36,7 @@ public:
     virtual void onDidChangeCoordinate(GPSTargetsId aTarget, const CGPSPoint& aNewPoint);
     
 private:
-    std::vector<IGPSObserver*> mObservers;
+    std::map<GPSTargetsId , std::vector<IGPSObserver*> > mObservers;
     
     std::vector<int> mActiveMonitoring;
     
