@@ -9,5 +9,16 @@
 #ifndef ThingsLocationProject_IAppCore_h
 #define ThingsLocationProject_IAppCore_h
 
+class CAppData;
+class IGPSManager;
+
+class IAppCore
+{
+    virtual ~IAppCore() {};
+    
+    virtual CAppData* getAppData() = 0;
+    
+    virtual IGPSManager* getGPSManager() = 0;
+};
 
 #endif

@@ -7,3 +7,17 @@
 //
 
 #include "CAppData.h"
+#include "Utils.h"
+#include "Log.h"
+
+USING_NS_CC;
+
+CAppData::CAppData()
+{
+    TRACE_ALLOC
+}
+
+CAppData::~CAppData()
+{
+    TRACE_DEALLOC
+}
