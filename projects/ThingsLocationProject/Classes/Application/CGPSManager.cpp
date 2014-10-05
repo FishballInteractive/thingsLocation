@@ -11,9 +11,10 @@
 #include "Log.h"
 #include "IGPSObserver.h"
 
+
 USING_NS_CC;
 
-typedef std::pair<GPSTargetsId, IGPSObserver*> pair_observer;
+typedef std::pair<GPSTargetsId, std::vector<IGPSObserver*> > pair_observer;
 
 CGPSManager::CGPSManager()
 {
@@ -23,11 +24,14 @@ CGPSManager::CGPSManager()
 CGPSManager::~CGPSManager()
 {
     TRACE_DEALLOC
+    
+    utils::releaseObject(mNativeController);
 }
 
 void CGPSManager::init()
 {
     mNativeController = IGPSControllerNative::create();
+    utils::retainObject(mNativeController);
     mNativeController->initWithDelegate(this);
 }
 
@@ -56,7 +60,19 @@ void CGPSManager::stopMonitoring(GPSTargetsId aTarget)
 
 void CGPSManager::addObserver(GPSTargetsId aTarget, IGPSObserver* aObserver)
 {
-    mObservers.insert(pair_observer(aTarget,aObserver));
+    std::map<GPSTargetsId , std::vector<IGPSObserver*> >::iterator it = mObservers.find(aTarget);
+    
+    if(it != mObservers.end())
+    {
+        it->second.push_back(aObserver);
+    }
+    else
+    {
+        std::vector<IGPSObserver*> arr;
+        arr.push_back(aObserver);
+        
+        mObservers.insert(pair_observer(aTarget, arr));
+    }
 }
 
 void CGPSManager::removeObserver(GPSTargetsId aTarget, IGPSObserver* aObserver)

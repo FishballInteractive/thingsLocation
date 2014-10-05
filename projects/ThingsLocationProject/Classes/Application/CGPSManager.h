@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "IGPSManager.h"
 #include "IGPSControllerNative.h"
+#include "IGPSObserver.h"
 
 class CGPSManager
     : public cocos2d::CCObject

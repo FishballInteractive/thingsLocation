@@ -250,6 +250,7 @@
 		8A1C813619D8116A00253A88 /* CAppData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C813419D8116A00253A88 /* CAppData.cpp */; };
 		8A1C813A19D811DB00253A88 /* CGPSPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C813819D811DB00253A88 /* CGPSPoint.cpp */; };
 		8A1C814219D856A300253A88 /* CGPSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C814019D856A300253A88 /* CGPSManager.cpp */; };
+		8A359D8F19E1A88D006C3D76 /* CGPSControllerNative_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A359D8D19E1A88D006C3D76 /* CGPSControllerNative_ios.mm */; };
 		8AC6BE9619D2F07E001CD6A7 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */; };
 		8AC6BEA619D2F12F001CD6A7 /* CNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9819D2F12F001CD6A7 /* CNotificationCenter.cpp */; };
 		8AC6BEA719D2F12F001CD6A7 /* CBufferReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9B19D2F12F001CD6A7 /* CBufferReader.cpp */; };
@@ -801,6 +802,8 @@
 		8A1C814019D856A300253A88 /* CGPSManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CGPSManager.cpp; sourceTree = "<group>"; };
 		8A1C814119D856A300253A88 /* CGPSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPSManager.h; sourceTree = "<group>"; };
 		8A1C814319D8587B00253A88 /* GPSTargetsId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSTargetsId.h; sourceTree = "<group>"; };
+		8A359D8D19E1A88D006C3D76 /* CGPSControllerNative_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CGPSControllerNative_ios.mm; sourceTree = "<group>"; };
+		8A359D8E19E1A88D006C3D76 /* CGPSControllerNative_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPSControllerNative_ios.h; sourceTree = "<group>"; };
 		8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		8AC6BE9419D2F07E001CD6A7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8AC6BE9519D2F07E001CD6A7 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacros.h; sourceTree = "<group>"; };
@@ -2002,9 +2005,27 @@
 			path = app_models;
 			sourceTree = "<group>";
 		};
+		8A359D8A19E1A77E006C3D76 /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				8A359D8C19E1A77E006C3D76 /* ios */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		8A359D8C19E1A77E006C3D76 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				8A359D8D19E1A88D006C3D76 /* CGPSControllerNative_ios.mm */,
+				8A359D8E19E1A88D006C3D76 /* CGPSControllerNative_ios.h */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
 		8AC6BE9219D2F07E001CD6A7 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				8A359D8A19E1A77E006C3D76 /* platform */,
 				8A1C813719D8117500253A88 /* app_models */,
 				8A1C813019D8112800253A88 /* interface */,
 				8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */,
@@ -2380,6 +2401,7 @@
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				15C0B564196D412F007F909D /* CCDataReaderHelper.cpp in Sources */,
+				8A359D8F19E1A88D006C3D76 /* CGPSControllerNative_ios.mm in Sources */,
 				15C0B579196D412F007F909D /* UICheckBox.cpp in Sources */,
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,

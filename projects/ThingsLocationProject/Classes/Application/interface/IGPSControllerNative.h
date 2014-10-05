@@ -9,13 +9,14 @@
 #ifndef ThingsLocationProject_IGPSControllerNative_h
 #define ThingsLocationProject_IGPSControllerNative_h
 
+#include "GPSTargetsId.h"
+
 class CGPSPoint;
 
 class IGPSControllerNativeDelegate
 {
 public:
-    
-    virtual ~IGPSControllerNativeDelegate();
+    virtual ~IGPSControllerNativeDelegate() {};
     
     virtual void onDidChangeCoordinate(GPSTargetsId aTarget, const CGPSPoint& aNewPoint) = 0;
 };
