@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "CGPSPoint.h"
+#include "GPSTargetsId.h"
 
 class IGPSObserver
 {

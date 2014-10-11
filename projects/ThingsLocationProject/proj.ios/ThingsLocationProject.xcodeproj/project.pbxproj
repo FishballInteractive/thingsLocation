@@ -238,9 +238,6 @@
 		1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3624316D4A1E8000847F2 /* AppController.mm */; };
 		1AC3624B16D4A1E8000847F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3624516D4A1E8000847F2 /* main.m */; };
 		1ACB3244164770DE00914215 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ACB3243164770DE00914215 /* libcurl.a */; };
-		1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B916D35E4900DB1158 /* CloseNormal.png */; };
-		1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */; };
-		1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */; };
 		1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCDA8116D4A25900906EA6 /* RootViewController.mm */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -251,6 +248,9 @@
 		8A1C813A19D811DB00253A88 /* CGPSPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C813819D811DB00253A88 /* CGPSPoint.cpp */; };
 		8A1C814219D856A300253A88 /* CGPSManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A1C814019D856A300253A88 /* CGPSManager.cpp */; };
 		8A359D8F19E1A88D006C3D76 /* CGPSControllerNative_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A359D8D19E1A88D006C3D76 /* CGPSControllerNative_ios.mm */; };
+		8A359DB719E94C0E006C3D76 /* CMainScreenController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A359DB519E94C0E006C3D76 /* CMainScreenController.cpp */; };
+		8A359DBA19E94C26006C3D76 /* CMainScreenView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A359DB819E94C26006C3D76 /* CMainScreenView.cpp */; };
+		8A359DEA19E9689C006C3D76 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 8A359DE919E9689C006C3D76 /* res */; };
 		8AC6BE9619D2F07E001CD6A7 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */; };
 		8AC6BEA619D2F12F001CD6A7 /* CNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9819D2F12F001CD6A7 /* CNotificationCenter.cpp */; };
 		8AC6BEA719D2F12F001CD6A7 /* CBufferReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9B19D2F12F001CD6A7 /* CBufferReader.cpp */; };
@@ -778,9 +778,6 @@
 		1AC3624516D4A1E8000847F2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		1AC3624616D4A1E8000847F2 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
-		1AFAF8B916D35E4900DB1158 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1AFCDA8016D4A25900906EA6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = SOURCE_ROOT; };
 		1AFCDA8116D4A25900906EA6 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -804,6 +801,12 @@
 		8A1C814319D8587B00253A88 /* GPSTargetsId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSTargetsId.h; sourceTree = "<group>"; };
 		8A359D8D19E1A88D006C3D76 /* CGPSControllerNative_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CGPSControllerNative_ios.mm; sourceTree = "<group>"; };
 		8A359D8E19E1A88D006C3D76 /* CGPSControllerNative_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPSControllerNative_ios.h; sourceTree = "<group>"; };
+		8A359DB519E94C0E006C3D76 /* CMainScreenController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMainScreenController.cpp; sourceTree = "<group>"; };
+		8A359DB619E94C0E006C3D76 /* CMainScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMainScreenController.h; sourceTree = "<group>"; };
+		8A359DB819E94C26006C3D76 /* CMainScreenView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMainScreenView.cpp; sourceTree = "<group>"; };
+		8A359DB919E94C26006C3D76 /* CMainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMainScreenView.h; sourceTree = "<group>"; };
+		8A359DBB19E958EE006C3D76 /* IMainScreenDataProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMainScreenDataProtocol.h; sourceTree = "<group>"; };
+		8A359DE919E9689C006C3D76 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		8AC6BE9319D2F07E001CD6A7 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		8AC6BE9419D2F07E001CD6A7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8AC6BE9519D2F07E001CD6A7 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacros.h; sourceTree = "<group>"; };
@@ -1969,9 +1972,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
-				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
-				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
+				8A359DE919E9689C006C3D76 /* res */,
 				D41A0AD0160F154A004552AE /* Default-568h@2x.png */,
 				7855E0DF153FEF240059DD9A /* Default.png */,
 				D446FD6D16102124000ADA7B /* Default@2x.png */,
@@ -1992,6 +1993,7 @@
 				8A1C813319D8114E00253A88 /* IGPSManager.h */,
 				8A1C813F19D853C600253A88 /* IGPSObserver.h */,
 				8A1C814319D8587B00253A88 /* GPSTargetsId.h */,
+				8A359DBB19E958EE006C3D76 /* IMainScreenDataProtocol.h */,
 			);
 			path = interface;
 			sourceTree = "<group>";
@@ -2037,6 +2039,10 @@
 				8A1C813519D8116A00253A88 /* CAppData.h */,
 				8A1C814019D856A300253A88 /* CGPSManager.cpp */,
 				8A1C814119D856A300253A88 /* CGPSManager.h */,
+				8A359DB519E94C0E006C3D76 /* CMainScreenController.cpp */,
+				8A359DB619E94C0E006C3D76 /* CMainScreenController.h */,
+				8A359DB819E94C26006C3D76 /* CMainScreenView.cpp */,
+				8A359DB919E94C26006C3D76 /* CMainScreenView.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -2173,6 +2179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A359DEA19E9689C006C3D76 /* res in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
@@ -2181,9 +2188,6 @@
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
-				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
-				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
-				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2339,6 +2343,7 @@
 				15A3DA401682F826002FB0C5 /* CCMenuItemImageLoader.cpp in Sources */,
 				15A3DA411682F826002FB0C5 /* CCMenuItemLoader.cpp in Sources */,
 				15A3DA421682F826002FB0C5 /* CCNode+CCBRelativePositioning.cpp in Sources */,
+				8A359DBA19E94C26006C3D76 /* CMainScreenView.cpp in Sources */,
 				15A3DA431682F826002FB0C5 /* CCNodeLoader.cpp in Sources */,
 				15A3DA441682F826002FB0C5 /* CCNodeLoaderLibrary.cpp in Sources */,
 				15A3DA451682F826002FB0C5 /* CCParticleSystemQuadLoader.cpp in Sources */,
@@ -2392,6 +2397,7 @@
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				15C0B554196D412F007F909D /* CCNodeReader.cpp in Sources */,
+				8A359DB719E94C0E006C3D76 /* CMainScreenController.cpp in Sources */,
 				15C0B551196D412F007F909D /* CCActionTimeline.cpp in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */,

@@ -13,6 +13,7 @@
 USING_NS_CC;
 
 CAppData::CAppData()
+: mIsTakeKey(0)
 {
     TRACE_ALLOC
 }

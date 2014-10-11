@@ -14,6 +14,7 @@ class IGPSManager;
 
 class IAppCore
 {
+public:
     virtual ~IAppCore() {};
     
     virtual CAppData* getAppData() = 0;

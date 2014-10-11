@@ -544,10 +544,10 @@ bool CCTexture2D::initWithString(const char *text, ccFontDefinition *textDefinit
         
         // handle shadow parameters
         bool  shadowEnabled =  false;
-        float shadowDX      = 0.0f;
-        float shadowDY      = 0.0f;
-        float shadowBlur    = 0.0f;
-        float shadowOpacity = 0.0f;
+        float shadowDX      = 0.0;
+        float shadowDY      = 0.0;
+        float shadowBlur    = 0.0;
+        float shadowOpacity = 0.0;
         
         if ( textDefinition->m_shadow.m_shadowEnabled )
         {
@@ -560,10 +560,10 @@ bool CCTexture2D::initWithString(const char *text, ccFontDefinition *textDefinit
         
         // handle stroke parameters
         bool strokeEnabled = false;
-        float strokeColorR = 0.0f;
-        float strokeColorG = 0.0f;
-        float strokeColorB = 0.0f;
-        float strokeSize   = 0.0f;
+        float strokeColorR = 0.0;
+        float strokeColorG = 0.0;
+        float strokeColorB = 0.0;
+        float strokeSize   = 0.0;
         
         if ( textDefinition->m_stroke.m_strokeEnabled )
         {
@@ -807,7 +807,7 @@ void CCTexture2D::setAliasTexParameters()
 
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST );
 #if CC_ENABLE_CACHE_TEXTURE_DATA
-    ccTexParams texParams = {m_bHasMipmaps?GL_NEAREST_MIPMAP_NEAREST:GL_NEAREST,GL_NEAREST,GL_NONE,GL_NONE};
+    ccTexParams texParams = {(GLuint)(m_bHasMipmaps?GL_NEAREST_MIPMAP_NEAREST:GL_NEAREST),(GLuint)GL_NEAREST,(GLuint)GL_NONE,(GLuint)GL_NONE};
     VolatileTexture::setTexParameters(this, &texParams);
 #endif
 }
@@ -827,7 +827,7 @@ void CCTexture2D::setAntiAliasTexParameters()
 
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
 #if CC_ENABLE_CACHE_TEXTURE_DATA
-    ccTexParams texParams = {m_bHasMipmaps?GL_LINEAR_MIPMAP_NEAREST:GL_LINEAR,GL_LINEAR,GL_NONE,GL_NONE};
+    ccTexParams texParams = {(GLuint)(m_bHasMipmaps?GL_NEAREST_MIPMAP_NEAREST:GL_NEAREST),(GLuint)GL_NEAREST,(GLuint)GL_NONE,(GLuint)GL_NONE};
     VolatileTexture::setTexParameters(this, &texParams);
 #endif
 }

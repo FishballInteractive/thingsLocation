@@ -1,0 +1,155 @@
+//
+//  CMainScreenView.cpp
+//  ThingsLocationProject
+//
+//  Created by Kirill_Mag on 10/11/14.
+//
+//
+
+#include "CMainScreenView.h"
+#include "Log.h"
+#include "Utils.h"
+
+USING_NS_CC;
+
+#define TAG_LABEL_COORDINATE 12
+
+enum EOrderNode
+{
+    eBgOrder = 0,
+    eLabelNodeOrder = 1,
+    eButtonOrder = 2
+};
+
+enum ELabelIndex
+{
+    eCarLabelIndex = 0,
+    eKeyLabelIndex,
+    eMyLabelIndex,
+    eLabelIndexCount
+};
+CMainScreenView::CMainScreenView()
+: mDataProtocol(0)
+{
+    TRACE_ALLOC
+}
+
+CMainScreenView::~CMainScreenView()
+{
+    TRACE_DEALLOC
+    
+    utils::releaseObject(mDataProtocol);
+}
+
+CMainScreenView* CMainScreenView::create(IMainScreenDataProtocol* aProtocol)
+{
+    CMainScreenView* view = utils::createObject<CMainScreenView>();
+    bool res = view->initWithProtocol(aProtocol);
+    
+    if(res)
+    {
+        return view;
+    }
+    
+    return NULL;
+}
+
+cocos2d::CCNode* CMainScreenView::createCoordinateNode(const std::string& aDescrText)
+{
+    CCNode* node = CCNode::create();
+    CCSprite* bg_input = CCSprite::create("input_field.png");
+    
+    if (bg_input)
+    {
+        node->setContentSize(bg_input->getContentSize());
+        node->addChild(bg_input);
+    }
+    
+    CCLabelTTF* label_coordinate = CCLabelTTF::create("", "", 12.f * CC_CONTENT_SCALE_FACTOR());
+    
+    if(label_coordinate)
+    {
+        label_coordinate->setAnchorPoint(ccp(0.f, 0.5f));
+        label_coordinate->setPosition(ccp(0, node->getContentSize().height / 2.f));
+        node->addChild(label_coordinate, TAG_LABEL_COORDINATE);
+    }
+    
+    CCLabelTTF* label_descr = CCLabelTTF::create(aDescrText.c_str(), "", 12.f * CC_CONTENT_SCALE_FACTOR());
+    
+    if(label_descr)
+    {
+        label_descr->setPosition(ccp(node->getContentSize().width / 2.f, node->getContentSize().height + label_descr->getContentSize().height / 2.f));
+        
+        CCSize new_size = node->getContentSize();
+        new_size.height = label_descr->getContentSize().height;
+        node->setContentSize(new_size);
+        node->addChild(label_coordinate, TAG_LABEL_COORDINATE);
+    }
+    
+    
+    return node;
+}
+
+bool CMainScreenView::initWithProtocol(IMainScreenDataProtocol* aProtocol)
+{
+    if(!CCLayer::init())
+        return false;
+    
+    mDataProtocol = aProtocol;
+    utils::retainObject(mDataProtocol);
+    
+    CCSize win_size = CCDirector::sharedDirector()->getWinSize();
+    CCSprite* bg_spr = CCSprite::create("bg.jpg");
+    CCPoint center_pos = ccp(win_size.width/2.f, win_size.height/2.f);
+    
+    if(bg_spr)
+    {
+        bg_spr->setPosition(center_pos);
+        this->addChild(bg_spr, eBgOrder);
+    }
+    
+    CCNode* node = NULL;
+    mCoordinateLabels.resize(eLabelIndexCount);
+    
+    std::string text_arr[eLabelIndexCount] =
+    {
+        "Car's coordinates",
+        "Key's coordinates",
+        "My coordinates"
+    };
+    
+    CCPoint pos_arr[eLabelIndexCount] =
+    {
+        ccp(win_size.width * 0.3f, win_size.height * 0.75f),
+        ccp(win_size.width * 0.7f, win_size.height * 0.75f),
+        ccp(win_size.width * 0.5f, win_size.height * 0.6f)
+    };
+    
+    for(int i = 0; i < eLabelIndexCount; i++)
+    {
+        node = createCoordinateNode(text_arr[i]);
+        
+        if(node)
+        {
+            CCLabelTTF* label = dynamic_cast<CCLabelTTF*>(node->getChildByTag(TAG_LABEL_COORDINATE));
+            
+            if(label)
+            {
+                mCoordinateLabels[i] = label;
+            }
+            
+            CCPoint pos = pos_arr[i];
+            node->setPosition(pos);
+            node->setAnchorPoint(ccp(0.5f,0.5f));
+            
+            this->addChild(node, eLabelNodeOrder);
+        }
+    }
+    
+    return true;
+}
+
+void CMainScreenView::doUpdateView()
+{
+    
+}

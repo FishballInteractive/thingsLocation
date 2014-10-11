@@ -11,6 +11,13 @@
 #include "Log.h"
 #include "IGPSObserver.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "CGPSControllerNative_ios.h"
+#endif
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "CGPSControllerNative_android.h"
+#endif
 
 USING_NS_CC;
 

@@ -15,14 +15,14 @@ RESOURCES = app.config.txt \
             development.icf \
             pew-pew-lei.wav
 
-SD_RESOURCE_PATH = ../Resources/sd
+SD_RESOURCE_PATH = ../Resources/
 
-SD_RESOURCES = app.icf \
-               CloseNormal.png \
-               CloseSelected.png \
-               Player.png \
-               Projectile.png \
-               Target.png
+SD_RESOURCES = sd/app.icf \
+               sd/CloseNormal.png \
+               sd/CloseSelected.png \
+               sd/Player.png \
+               sd/Projectile.png \
+               sd/Target.png
 
 ALL_ASSETS := $(SD_RESOURCES) $(RESOURCES)
 
