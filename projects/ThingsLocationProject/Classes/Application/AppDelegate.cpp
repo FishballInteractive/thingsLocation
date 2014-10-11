@@ -10,6 +10,8 @@
 
 #include "Utils.h"
 
+#include "CMainScreenController.h"
+
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -122,8 +124,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
 
     pDirector->setAnimationInterval(1.0 / 60);
-    
-//    pDirector->runWithScene(scene);
+ 
+    CMainScreenController* scene = CMainScreenController::scene();
+    pDirector->runWithScene(scene);
     
 
 
