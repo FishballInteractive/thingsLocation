@@ -61,29 +61,33 @@ cocos2d::CCNode* CMainScreenView::createCoordinateNode(const std::string& aDescr
     
     if (bg_input)
     {
+        bg_input->setAnchorPoint(ccp(0.5f,0.5f));
         node->setContentSize(bg_input->getContentSize());
+        bg_input->setPosition(ccp(node->getContentSize().width / 2.f, node->getContentSize().height / 2.f));
         node->addChild(bg_input);
     }
     
-    CCLabelTTF* label_coordinate = CCLabelTTF::create("", "", 12.f * CC_CONTENT_SCALE_FACTOR());
+    CCLabelTTF* label_coordinate = CCLabelTTF::create("192.168.122", "", 6.f * CC_CONTENT_SCALE_FACTOR());
     
     if(label_coordinate)
     {
-        label_coordinate->setAnchorPoint(ccp(0.f, 0.5f));
-        label_coordinate->setPosition(ccp(0, node->getContentSize().height / 2.f));
-        node->addChild(label_coordinate, TAG_LABEL_COORDINATE);
+        label_coordinate->setAnchorPoint(ccp(0.5f, 0.5f));
+        label_coordinate->setPosition(ccp(node->getContentSize().width / 2.f, node->getContentSize().height / 2.f));
+        label_coordinate->setTag(TAG_LABEL_COORDINATE);
+        node->addChild(label_coordinate);
     }
     
-    CCLabelTTF* label_descr = CCLabelTTF::create(aDescrText.c_str(), "", 12.f * CC_CONTENT_SCALE_FACTOR());
+    CCLabelTTF* label_descr = CCLabelTTF::create(aDescrText.c_str(), "", 6.f * CC_CONTENT_SCALE_FACTOR());
     
     if(label_descr)
     {
         label_descr->setPosition(ccp(node->getContentSize().width / 2.f, node->getContentSize().height + label_descr->getContentSize().height / 2.f));
+        label_descr->setTag(TAG_LABEL_COORDINATE);
         
         CCSize new_size = node->getContentSize();
         new_size.height = label_descr->getContentSize().height;
         node->setContentSize(new_size);
-        node->addChild(label_coordinate, TAG_LABEL_COORDINATE);
+        node->addChild(label_descr);
     }
     
     

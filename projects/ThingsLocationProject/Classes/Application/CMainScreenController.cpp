@@ -40,7 +40,7 @@ bool CMainScreenController::init()
     mView = CMainScreenView::create(this);
     this->addChild(mView);
     
-    CAppCore::shared()->getGPSManager()->addObserver(eGPSMyLocationId, this);
+//    CAppCore::shared()->getGPSManager()->addObserver(eGPSMyLocationId, this);
 
     return true;
 }
