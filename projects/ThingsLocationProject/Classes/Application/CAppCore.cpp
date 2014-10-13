@@ -27,6 +27,9 @@ CAppCore::CAppCore()
 CAppCore::~CAppCore()
 {
     TRACE_DEALLOC
+    
+    utils::releaseObject(mAppData);
+    utils::releaseObject(mGPSManager);
 }
 
 CAppCore* CAppCore::shared()
@@ -41,6 +44,13 @@ CAppCore* CAppCore::shared()
 
 bool CAppCore::init()
 {
+    mGPSManager = utils::createObject<CGPSManager>();
+    mGPSManager->init();
+    utils::retainObject(mGPSManager);
+    
+    mAppData = utils::createObject<CAppData>();
+    utils::retainObject(mAppData);
+    
     return true;
 }
 

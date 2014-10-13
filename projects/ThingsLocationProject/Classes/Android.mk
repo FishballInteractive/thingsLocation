@@ -8,6 +8,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp\
 ../../Classes/./Application/CAppCore.cpp\
 ../../Classes/./Application/CAppData.cpp\
 ../../Classes/./Application/CGPSManager.cpp\
+../../Classes/./Application/CMainScreenController.cpp\
+../../Classes/./Application/CMainScreenView.cpp\
 ../../Classes/./Application/platform/android/CGPSControllerNative_android.cpp\
 ../../Classes/./lib/CNotificationCenter.cpp\
 ../../Classes/./lib/data/CBufferReader.cpp\

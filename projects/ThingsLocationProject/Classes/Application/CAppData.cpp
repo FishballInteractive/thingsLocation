@@ -16,9 +16,11 @@ CAppData::CAppData()
 : mIsTakeKey(0)
 {
     TRACE_ALLOC
+
 }
 
 CAppData::~CAppData()
 {
     TRACE_DEALLOC
+
 }

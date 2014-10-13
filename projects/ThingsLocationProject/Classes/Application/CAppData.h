@@ -20,13 +20,12 @@ public:
     
     virtual ~CAppData();
     
-    friend class CAppCore;
 private:
-    CC_SYNTHESIZE_READONLY(const CGPSPoint*, mKeyCoordinate, KeyCoordinate)
+    CC_SYNTHESIZE(CGPSPoint, mKeyCoordinate, KeyCoordinate)
     
-    CC_SYNTHESIZE_READONLY(const CGPSPoint*, mCarCoordinate, CarCoordinate)
+    CC_SYNTHESIZE(CGPSPoint, mCarCoordinate, CarCoordinate)
     
-    CC_SYNTHESIZE_READONLY(const CGPSPoint*, mMyCoordinate, MyCoordinate)
+    CC_SYNTHESIZE(CGPSPoint, mMyCoordinate, MyCoordinate)
     
     CC_SYNTHESIZE(bool, mIsTakeKey, IsTakeKey)
 };
