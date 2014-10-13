@@ -15,7 +15,7 @@ class CGPSPoint
     : public cocos2d::CCObject
 {
 public:
-    CGPSPoint(int aWidth, int mHeight, int mLenght);
+    CGPSPoint(double aLatitude, double mLongitude, double mAltitude);
     
     CGPSPoint(const std::string& aPointStr);
     
@@ -27,17 +27,16 @@ public:
     
     std::string toString();
     
-    const CGPSPoint& operator=(const CGPSPoint& aVal);
+    CGPSPoint operator=(const CGPSPoint& aVal);
     
 private:
     bool parseStringFormat(const std::string& aPointStr);
         
-    CC_SYNTHESIZE(int, mWidth, Width);
+    CC_SYNTHESIZE(double, mLatitude, Latitude);
     
-    CC_SYNTHESIZE(int, mHeight, Height);
+    CC_SYNTHESIZE(double, mLongitude, Longitude);
     
-    CC_SYNTHESIZE(int, mLenght, Lenght);
-    
+    CC_SYNTHESIZE(double, mAltitude, Altitude);
 };
 
 #endif /* defined(__ThingsLocationProject__CGPSPoint__) */

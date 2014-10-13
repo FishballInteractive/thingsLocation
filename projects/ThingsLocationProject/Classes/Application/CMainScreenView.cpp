@@ -9,6 +9,7 @@
 #include "CMainScreenView.h"
 #include "Log.h"
 #include "Utils.h"
+#include "CGPSPoint.h"
 
 USING_NS_CC;
 
@@ -41,10 +42,10 @@ CMainScreenView::~CMainScreenView()
     utils::releaseObject(mDataProtocol);
 }
 
-CMainScreenView* CMainScreenView::create(IMainScreenDataProtocol* aProtocol)
+CMainScreenView* CMainScreenView::create(IMainScreenDataProtocol* aProtocol, IMainScreenViewDelegate* aDelegate)
 {
     CMainScreenView* view = utils::createObject<CMainScreenView>();
-    bool res = view->initWithProtocol(aProtocol);
+    bool res = view->initWithProtocol(aProtocol,aDelegate);
     
     if(res)
     {
@@ -94,7 +95,7 @@ cocos2d::CCNode* CMainScreenView::createCoordinateNode(const std::string& aDescr
     return node;
 }
 
-bool CMainScreenView::initWithProtocol(IMainScreenDataProtocol* aProtocol)
+bool CMainScreenView::initWithProtocol(IMainScreenDataProtocol* aProtocol, IMainScreenViewDelegate* aDelegate)
 {
     if(!CCLayer::init())
         return false;
@@ -155,5 +156,14 @@ bool CMainScreenView::initWithProtocol(IMainScreenDataProtocol* aProtocol)
 
 void CMainScreenView::doUpdateView()
 {
+    TRACE_METHOD
     
+    std::string str = mDataProtocol->getKeyCoordinate();
+    mCoordinateLabels[eKeyLabelIndex]->setString(str.c_str());
+    
+    str = mDataProtocol->getCarCoordinate();
+    mCoordinateLabels[eCarLabelIndex]->setString(str.c_str());
+    
+    str = mDataProtocol->getMyCoordinate();
+    mCoordinateLabels[eMyLabelIndex]->setString(str.c_str());
 }

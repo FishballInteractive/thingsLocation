@@ -28,7 +28,7 @@ public:
     virtual void stopMonitoring(GPSTargetsId aTarget);
     
 private:
-    IGPSControllerNativeDelegate* mNativeDelegate;
+    CC_SYNTHESIZE_READONLY(IGPSControllerNativeDelegate*, mNativeDelegate, NativeDelegate);
 };
 
 #endif /* defined(__ThingsLocationProject__CGPSControllerNative_android__) */

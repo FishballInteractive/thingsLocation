@@ -12,18 +12,18 @@
 
 USING_NS_CC;
 
-CGPSPoint::CGPSPoint(int aWidth, int aHeight, int aLenght)
-: mHeight(mHeight)
-, mWidth(mWidth)
-, mLenght(aLenght)
+CGPSPoint::CGPSPoint(double aLatitude, double aLongitude, double aAltitude)
+: mLatitude(aLatitude)
+, mLongitude(aLongitude)
+, mAltitude(aAltitude)
 {
     TRACE_ALLOC
 }
 
 CGPSPoint::CGPSPoint(const std::string& aPointStr)
-: mHeight(0)
-, mWidth(0)
-, mLenght(0)
+: mLatitude(0)
+, mLongitude(0)
+, mAltitude(0)
 {
     TRACE_ALLOC
     
@@ -31,21 +31,25 @@ CGPSPoint::CGPSPoint(const std::string& aPointStr)
 }
 
 CGPSPoint::CGPSPoint(const CGPSPoint& aVal)
-: mHeight(0)
-, mWidth(0)
-, mLenght(0)
+: mLatitude(0)
+, mLongitude(0)
+, mAltitude(0)
 {
     TRACE_ALLOC
     
-    mHeight = aVal.getHeight();
-    mWidth = aVal.getWidth();
-    mLenght = aVal.getLenght();
+    mLatitude = aVal.getLatitude();
+    mLongitude = aVal.getLongitude();
+    mAltitude = aVal.getAltitude();
+    
+    TRACE_VAR_INT(mLatitude)
+    TRACE_VAR_INT(mLongitude)
+    TRACE_VAR_INT(mAltitude)
 }
 
 CGPSPoint::CGPSPoint()
-: mHeight(0)
-, mWidth(0)
-, mLenght(0)
+: mLatitude(0)
+, mLongitude(0)
+, mAltitude(0)
 {
     TRACE_ALLOC
 }
@@ -57,16 +61,16 @@ CGPSPoint::~CGPSPoint()
 
 std::string CGPSPoint::toString()
 {
-    std::string str_format = utils::stringWithFormat("%d.%d.%d", mWidth, mLenght, mHeight);
+    std::string str_format = utils::stringWithFormat("%.2lf - %.2lf - %.2lf",mLatitude, mLongitude, mAltitude);
     
     return str_format;
 }
 
-const CGPSPoint& CGPSPoint::operator=(const CGPSPoint& aVal)
+CGPSPoint CGPSPoint::operator=(const CGPSPoint& aVal)
 {
-    mHeight = aVal.getHeight();
-    mWidth = aVal.getWidth();
-    mLenght = aVal.getLenght();
+    mLatitude = aVal.getLatitude();
+    mLongitude = aVal.getLongitude();
+    mAltitude = aVal.getAltitude();
     
     return *this;
 }
@@ -76,14 +80,6 @@ bool CGPSPoint::parseStringFormat(const std::string& aPointStr)
 {
     bool is_valid = false;
     
-    int tmp_w = 0;
-    int tmp_h = 0;
-    int tmp_l = 0;
-    
-    if(aPointStr != "")
-    {
-    
-    }
     
     return is_valid;
 }

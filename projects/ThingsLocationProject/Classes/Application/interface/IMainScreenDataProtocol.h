@@ -16,11 +16,11 @@ class IMainScreenDataProtocol
 public:
     virtual ~IMainScreenDataProtocol() {}
     
-    virtual const CGPSPoint* getKeyCoordinate() = 0;
+    virtual std::string getKeyCoordinate() = 0;
     
-    virtual const CGPSPoint* getMyCoordinate() = 0;
+    virtual std::string getMyCoordinate() = 0;
     
-    virtual const CGPSPoint* getCarCoordinate() = 0;
+    virtual std::string getCarCoordinate() = 0;
 };
 
 #endif

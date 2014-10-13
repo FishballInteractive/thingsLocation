@@ -29,11 +29,13 @@ public:
     
     virtual void onDidChangeCoordinate(GPSTargetsId aTarget, const CGPSPoint& aNewPoint);
     
-    virtual const CGPSPoint* getKeyCoordinate();
+    virtual std::string getKeyCoordinate();
     
-    virtual const CGPSPoint* getMyCoordinate();
+    virtual std::string getMyCoordinate();
     
-    virtual const CGPSPoint* getCarCoordinate();
+    virtual std::string getCarCoordinate();
+    
+    virtual void onEnterTransitionDidFinish();
 private:
     CMainScreenView* mView;
 };

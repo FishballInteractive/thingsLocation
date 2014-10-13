@@ -30,16 +30,22 @@ import android.os.Bundle;
 
 public class ThingsLocationProject extends Cocos2dxActivity{
 	public Cocos2dxGLSurfaceView mGlView = null;
+	public GPSTracker mGPSTracker = null;
+	static public ThingsLocationProject inst = null;
 	
     protected void onCreate(Bundle savedInstanceState)
     {
 		super.onCreate(savedInstanceState);	
+		
+		inst = this;
+		
+		mGPSTracker = new GPSTracker(this);
 	}
 
     public Cocos2dxGLSurfaceView onCreateView() {
     	mGlView = new Cocos2dxGLSurfaceView(this);
     	mGlView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
-    	
+    	    	
     	return mGlView;
     }
 

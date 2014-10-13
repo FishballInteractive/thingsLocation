@@ -37,21 +37,33 @@ bool CMainScreenController::init()
     if(!CCScene::init())
         return false;
     
-    mView = CMainScreenView::create(this);
+    mView = CMainScreenView::create(this,NULL);
     this->addChild(mView);
     
-//    CAppCore::shared()->getGPSManager()->addObserver(eGPSMyLocationId, this);
+    CAppCore::shared()->getGPSManager()->addObserver(eGPSMyLocationId, this);
 
     return true;
 }
 
+void CMainScreenController::onEnterTransitionDidFinish()
+{
+    CCScene::onEnterTransitionDidFinish();
+    
+    CAppCore::shared()->getGPSManager()->startMonitoring(eGPSMyLocationId);
+}
+
 void CMainScreenController::onDidChangeCoordinate(GPSTargetsId aTarget, const CGPSPoint& aNewPoint)
 {
+    TRACE_METHOD
+    
     switch ((int)aTarget)
     {
         case eGPSMyLocationId:
         {
+            TRACE("case eGPSMyLocationId:")
+            CAppCore::shared()->getAppData()->setMyCoordinate(aNewPoint);
             
+            mView->doUpdateView();
         }
             break;
             
@@ -60,17 +72,17 @@ void CMainScreenController::onDidChangeCoordinate(GPSTargetsId aTarget, const CG
     }
 }
 
-const CGPSPoint* CMainScreenController::getKeyCoordinate()
+std::string CMainScreenController::getKeyCoordinate()
 {
-    return CAppCore::shared()->getAppData()->getKeyCoordinate();
+    return CAppCore::shared()->getAppData()->getKeyCoordinate().toString();
 }
 
-const CGPSPoint* CMainScreenController::getMyCoordinate()
+std::string CMainScreenController::getMyCoordinate()
 {
-    return CAppCore::shared()->getAppData()->getMyCoordinate();
+    return CAppCore::shared()->getAppData()->getMyCoordinate().toString();
 }
 
-const CGPSPoint* CMainScreenController::getCarCoordinate()
+std::string CMainScreenController::getCarCoordinate()
 {
-    return CAppCore::shared()->getAppData()->getCarCoordinate();
+    return CAppCore::shared()->getAppData()->getCarCoordinate().toString();
 }

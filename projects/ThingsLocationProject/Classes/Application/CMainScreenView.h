@@ -12,6 +12,16 @@
 #include "cocos2d.h"
 #include "IMainScreenDataProtocol.h"
 
+class IMainScreenViewDelegate
+{
+public:
+    virtual ~IMainScreenViewDelegate() {}
+    
+    virtual void onDidSetNewCarCoordinate(const std::string& aCoordinate) = 0;
+    
+    virtual void onDidSetNewKeyCoordinate(const std::string& aCoordinate) = 0;
+};
+
 class CMainScreenView
     : public cocos2d::CCLayer
 {
@@ -20,9 +30,9 @@ public:
     
     virtual ~CMainScreenView();
     
-    static CMainScreenView* create(IMainScreenDataProtocol* aProtocol);
+    static CMainScreenView* create(IMainScreenDataProtocol* aProtocol, IMainScreenViewDelegate* aDelegate);
     
-    bool initWithProtocol(IMainScreenDataProtocol* aProtocol);
+    bool initWithProtocol(IMainScreenDataProtocol* aProtocol, IMainScreenViewDelegate* aDelegate);
     
     void doUpdateView();
     

@@ -44,6 +44,8 @@ void CGPSManager::init()
 
 void CGPSManager::onDidChangeCoordinate(GPSTargetsId aTarget, const CGPSPoint& aNewPoint)
 {
+    TRACE_METHOD
+    
     std::map<GPSTargetsId , std::vector<IGPSObserver*> >::iterator it = mObservers.find(aTarget);
     
     if(it != mObservers.end())

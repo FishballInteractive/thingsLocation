@@ -30,10 +30,11 @@ public class GPSTracker implements LocationListener {
     private static final long MIN_TIME_BW_UPDATES = 1; // 1 minute
 
     protected LocationManager locationManager;
-
+    
+    static native void nativeDidLocationChanged(double d, double e, double f);
+    
     public GPSTracker(Context context) {
         this.mContext = context;
-        getLocation();
     }
 
     public Location getLocation()
@@ -174,6 +175,17 @@ public class GPSTracker implements LocationListener {
     @Override
     public void onLocationChanged(Location location) 
     {
+    	Log.d("GPSTracker", location.toString());
+    	final Location fL = location;
+    	
+    	ThingsLocationProject.inst.runOnGLThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				nativeDidLocationChanged(fL.getLatitude(),fL.getLongitude(),fL.getAltitude());
+				
+			}
+		});
     	
     }
 
@@ -187,5 +199,17 @@ public class GPSTracker implements LocationListener {
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
+    
+    static public void nativeStartMonitoring(int aTarget)
+    {
+    	ThingsLocationProject.inst.runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				ThingsLocationProject.inst.mGPSTracker.getLocation();
+				
+			}
+		});
     }
 }

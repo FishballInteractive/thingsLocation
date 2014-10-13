@@ -8,6 +8,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp\
 ../../Classes/./Application/CAppCore.cpp\
 ../../Classes/./Application/CAppData.cpp\
 ../../Classes/./Application/CGPSManager.cpp\
+../../Classes/./Application/CMainScreenController.cpp\
+../../Classes/./Application/CMainScreenView.cpp\
 ../../Classes/./Application/platform/android/CGPSControllerNative_android.cpp\
 ../../Classes/./lib/CNotificationCenter.cpp\
 ../../Classes/./lib/data/CBufferReader.cpp\
@@ -20,7 +22,6 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application/app_models
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application/interface
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application/platform/android
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application/platform/ios
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application/platform
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/data
@@ -28,6 +29,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/debug
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/interface
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/third_part/jsoncpp
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/third_part
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/platforms/android
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../../cocos2dx/platform/
 LOCAL_LDLIBS := $(NDK_ROOT)/sources/cxx-stl/gnu-libstdc++/4.6/libs/armeabi-v7a/libsupc++.a
