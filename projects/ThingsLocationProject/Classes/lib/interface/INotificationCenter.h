@@ -1,10 +1,3 @@
-//
-//  INotificationCenter.h
-//  
-//
-//  Created by Kirill_Mag on 10.06.13.
-//
-//
 
 #ifndef _INotificationCenter_h
 #define _INotificationCenter_h

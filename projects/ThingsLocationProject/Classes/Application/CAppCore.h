@@ -13,6 +13,8 @@
 #include "cocos2d.h"
 #include "CAppData.h"
 #include "IGPSManager.h"
+#include "CPushNotificationManager.h"
+#include "INotificationCenter.h"
 
 class CAppCore
     : public cocos2d::CCObject
@@ -30,10 +32,20 @@ public:
     
     virtual IGPSManager* getGPSManager();
     
+    virtual INotificationCenter* getNotificationCenter();
+    
+    virtual CPushNotificationManager* getPushNotificationManager();
+    
 private:
+    CC_SYNTHESIZE(bool, mIsBackground, IsBackground)
+    
+    INotificationCenter* mNotificationCenter;
+    
     CAppData* mAppData;
     
     IGPSManager* mGPSManager;
+    
+    CPushNotificationManager* mPushNotificationManager;
 };
 
 #endif /* defined(__ThingsLocationProject__CAppCore__) */

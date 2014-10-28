@@ -1,10 +1,4 @@
-//
-//  CNotificationCenter.cpp
-//  
-//
-//  Created by Kirill_Mag on 11.06.13.
-//
-//
+
 
 #include "CNotificationCenter.h"
 

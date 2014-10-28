@@ -11,8 +11,13 @@
 #include "Log.h"
 #include "CAppCore.h"
 #include "CGPSPoint.h"
+#include "NoticationEvents.h"
 
 USING_NS_CC;
+
+#define MAX_DISTANCE 10
+#define MAX_KEY_DISTANCE 2
+
 
 CMainScreenController::CMainScreenController()
 {
@@ -24,6 +29,13 @@ CMainScreenController::~CMainScreenController()
     TRACE_DEALLOC
 }
 
+void CMainScreenController::onExit()
+{
+    CCScene::onExit();
+    CAppCore::shared()->getNotificationCenter()->removeObserver(this);
+    
+}
+
 CMainScreenController* CMainScreenController::scene()
 {
     CMainScreenController* controller = utils::createObject<CMainScreenController>();
@@ -32,6 +44,33 @@ CMainScreenController* CMainScreenController::scene()
     return controller;
 }
 
+void CMainScreenController::scheduleFunc(float aTime)
+{
+    TRACE_METHOD
+    mView->doUpdateView();
+}
+
+void CMainScreenController::handleNotification(INotificationCenter* aNotificationCenter,int aEvent, cocos2d::CCObject* aParam)
+{
+    switch (aEvent)
+    {
+        case eApplicationDidEnterBackground:
+        {
+            
+        }
+            break;
+            
+        case eApplicationWillEnterForeground:
+        {
+            TRACE("CMainScreenController::handleNotification eApplicationWillEnterForeground")
+            this->scheduleOnce(schedule_selector(CMainScreenController::scheduleFunc), 1/60.f);
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 bool CMainScreenController::init()
 {
     if(!CCScene::init())
@@ -42,6 +81,11 @@ bool CMainScreenController::init()
     
     CAppCore::shared()->getGPSManager()->addObserver(eGPSMyLocationId, this);
 
+    for(int i = 0; i < eNotificationEventsCount; i++)
+    {
+        CAppCore::shared()->getNotificationCenter()->addObserver(i, this);
+    }
+    
     return true;
 }
 
@@ -64,12 +108,64 @@ void CMainScreenController::onDidChangeCoordinate(GPSTargetsId aTarget, const CG
             CAppCore::shared()->getAppData()->setMyCoordinate(aNewPoint);
             
             mView->doUpdateView();
+            
+            checkDistance();
+            
         }
             break;
             
         default:
             break;
     }
+}
+
+void CMainScreenController::checkDistance()
+{
+    int dist = utils::gpsDistance(CAppCore::shared()->getAppData()->getMyCoordinate(), CAppCore::shared()->getAppData()->getCarCoordinate());
+    
+    TRACE_VAR_INT(dist);
+    
+    if(dist < MAX_DISTANCE)
+    {
+        TRACE("YEEEH");
+        int key_dist = utils::gpsDistance(CAppCore::shared()->getAppData()->getMyCoordinate(), CAppCore::shared()->getAppData()->getKeyCoordinate());
+        
+        
+        SPushData push;
+        
+        if(key_dist > MAX_KEY_DISTANCE)
+        {
+            push.setMessage("You forgot the keys from car");
+        }
+        else
+        {
+            push.setMessage("We wish you good travel");
+        }
+        
+        
+        push.setScheduleTime(1);
+        push.setPushId(1);
+        
+        CAppCore::shared()->getPushNotificationManager()->registrationPushNotification(push);
+    }
+}
+
+void CMainScreenController::onInputKeyCoordinate(const std::string& aStr)
+{
+    CAppCore::shared()->getAppData()->setKeyCoordinate(aStr);
+    
+    mView->doUpdateView();
+    
+    checkDistance();
+}
+
+void CMainScreenController::onInputCarCoordinate(const std::string& aStr)
+{
+    CAppCore::shared()->getAppData()->setCarCoordinate(aStr);
+    
+    mView->doUpdateView();
+    
+    checkDistance();
 }
 
 std::string CMainScreenController::getKeyCoordinate()

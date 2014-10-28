@@ -12,11 +12,13 @@
 #include "cocos2d.h"
 #include "CMainScreenView.h"
 #include "IGPSObserver.h"
+#include "INotificationObserver.h"
 
 class CMainScreenController
     : public cocos2d::CCScene
     , public IGPSObserver
     , public IMainScreenDataProtocol
+    , public INotificationObserver
 {
 public:
     CMainScreenController();
@@ -24,6 +26,12 @@ public:
     virtual ~CMainScreenController();
     
     static CMainScreenController* scene();
+    
+    virtual void onExit();
+    
+    void scheduleFunc(float aTime);
+    
+    virtual void handleNotification(INotificationCenter* aNotificationCenter,int aEvent, cocos2d::CCObject* aParam = 0);
     
     virtual bool init();
     
@@ -35,8 +43,14 @@ public:
     
     virtual std::string getCarCoordinate();
     
+    virtual void onInputKeyCoordinate(const std::string& aStr);
+    
+    virtual void onInputCarCoordinate(const std::string& aStr);
+    
     virtual void onEnterTransitionDidFinish();
 private:
+    void checkDistance();
+    
     CMainScreenView* mView;
 };
 

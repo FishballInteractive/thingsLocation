@@ -20,12 +20,18 @@ public:
     
     virtual ~CAppData();
     
+    void setKeyCoordinate(const CGPSPoint& aPoint);
+    
+    void setCarCoordinate(const CGPSPoint& aPoint);
+    
+    void setMyCoordinate(const CGPSPoint& aPoint);
+    
 private:
-    CC_SYNTHESIZE(CGPSPoint, mKeyCoordinate, KeyCoordinate)
+    CC_SYNTHESIZE_READONLY(CGPSPoint, mKeyCoordinate, KeyCoordinate)
     
-    CC_SYNTHESIZE(CGPSPoint, mCarCoordinate, CarCoordinate)
+    CC_SYNTHESIZE_READONLY(CGPSPoint, mCarCoordinate, CarCoordinate)
     
-    CC_SYNTHESIZE(CGPSPoint, mMyCoordinate, MyCoordinate)
+    CC_SYNTHESIZE_READONLY(CGPSPoint, mMyCoordinate, MyCoordinate)
     
     CC_SYNTHESIZE(bool, mIsTakeKey, IsTakeKey)
 };

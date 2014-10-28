@@ -15,6 +15,9 @@ LOCAL_SRC_FILES := hellocpp/main.cpp\
 ../../Classes/./lib/data/CBufferReader.cpp\
 ../../Classes/./lib/data/CBufferWriter.cpp\
 ../../Classes/./lib/data/CValue.cpp\
+../../Classes/./lib/platforms/android/CPushNotificationHelper_android.cpp\
+../../Classes/./lib/push_notifications/CPushNotification.cpp\
+../../Classes/./lib/push_notifications/CPushNotificationManager.cpp\
 ../../Classes/./lib/third_part/jsoncpp/jsoncpp.cpp\
 ../../Classes/./lib/Utils.cpp\
 \
@@ -28,6 +31,11 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./Application
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/data
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/debug
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/interface
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/platforms/android
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/platforms/ios/utils
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/platforms/ios
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/platforms
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/push_notifications
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/third_part/jsoncpp
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib/third_part
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/./lib

@@ -37,6 +37,8 @@ private:
     CC_SYNTHESIZE(double, mLongitude, Longitude);
     
     CC_SYNTHESIZE(double, mAltitude, Altitude);
+    
+    CC_SYNTHESIZE_READONLY(bool, mIsValid, IsValid);
 };
 
 #endif /* defined(__ThingsLocationProject__CGPSPoint__) */

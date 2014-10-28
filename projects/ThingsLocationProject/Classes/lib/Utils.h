@@ -6,7 +6,7 @@
 #include <vector>
 #include <list>
 #include "cocos2d.h"
-
+#include "CGPSPoint.h"
 
 USING_NS_CC;
 
@@ -57,6 +57,8 @@ template <typename T> void autoreleaseObject(T* aObject)
 
 int hash(std::string const& key);
 
+int gpsDistance(const CGPSPoint& aPointFirst, const CGPSPoint& aPointSecond);
+    
 std::string stringWithFormat(const char * pszFormat, ...);
 
 std::string valueToString(const int aValue);

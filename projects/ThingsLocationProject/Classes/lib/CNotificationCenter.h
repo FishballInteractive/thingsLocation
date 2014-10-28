@@ -1,10 +1,4 @@
-//
-//  CNotificationCenter.h
-//  
-//
-//  Created by Kirill_Mag on 11.06.13.
-//
-//
+
 
 #ifndef __CNotificationCenter__
 #define __CNotificationCenter__

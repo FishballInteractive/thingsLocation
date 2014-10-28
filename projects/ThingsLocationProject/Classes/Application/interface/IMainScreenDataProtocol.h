@@ -21,6 +21,10 @@ public:
     virtual std::string getMyCoordinate() = 0;
     
     virtual std::string getCarCoordinate() = 0;
+    
+    virtual void onInputKeyCoordinate(const std::string& aStr) = 0;
+    
+    virtual void onInputCarCoordinate(const std::string& aStr) = 0;
 };
 
 #endif

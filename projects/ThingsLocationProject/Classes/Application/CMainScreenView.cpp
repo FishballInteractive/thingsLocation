@@ -10,8 +10,11 @@
 #include "Log.h"
 #include "Utils.h"
 #include "CGPSPoint.h"
+#include "cocos-ext.h"
+#include "CAppCore.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 #define TAG_LABEL_COORDINATE 12
 
@@ -31,6 +34,7 @@ enum ELabelIndex
 };
 CMainScreenView::CMainScreenView()
 : mDataProtocol(0)
+, mCurrentOpen(0)
 {
     TRACE_ALLOC
 }
@@ -40,6 +44,55 @@ CMainScreenView::~CMainScreenView()
     TRACE_DEALLOC
     
     utils::releaseObject(mDataProtocol);
+}
+
+bool CMainScreenView::onTextFieldAttachWithIME(CCTextFieldTTF * sender)
+{
+    sender->setString("");
+    
+    return false;
+}
+
+
+bool CMainScreenView::onTextFieldDetachWithIME(CCTextFieldTTF * sender)
+{
+    int tag = sender->getTag();
+    
+    switch (tag)
+    {
+        case eCarLabelIndex:
+        {
+            std::string str = sender->getString();
+            mDataProtocol->onInputCarCoordinate(str);
+        }
+            break;
+            
+        case eKeyLabelIndex:
+        {
+            std::string str = sender->getString();
+            mDataProtocol->onInputKeyCoordinate(str);
+        }
+            break;
+
+            
+        default:
+            break;
+    }
+    return false;
+}
+
+
+bool CMainScreenView::onTextFieldInsertText(CCTextFieldTTF * sender, const char * text, int nLen)
+{
+
+    return false;
+}
+
+
+bool CMainScreenView::onTextFieldDeleteBackward(CCTextFieldTTF * sender, const char * delText, int nLen)
+{
+
+    return false;
 }
 
 CMainScreenView* CMainScreenView::create(IMainScreenDataProtocol* aProtocol, IMainScreenViewDelegate* aDelegate)
@@ -68,13 +121,14 @@ cocos2d::CCNode* CMainScreenView::createCoordinateNode(const std::string& aDescr
         node->addChild(bg_input);
     }
     
-    CCLabelTTF* label_coordinate = CCLabelTTF::create("192.168.122", "", 6.f * CC_CONTENT_SCALE_FACTOR());
+    CCTextFieldTTF* label_coordinate = CCTextFieldTTF::textFieldWithPlaceHolder("", "", 6.f * CC_CONTENT_SCALE_FACTOR());
     
     if(label_coordinate)
     {
         label_coordinate->setAnchorPoint(ccp(0.5f, 0.5f));
         label_coordinate->setPosition(ccp(node->getContentSize().width / 2.f, node->getContentSize().height / 2.f));
         label_coordinate->setTag(TAG_LABEL_COORDINATE);
+        label_coordinate->setDelegate(this);
         node->addChild(label_coordinate);
     }
     
@@ -136,17 +190,35 @@ bool CMainScreenView::initWithProtocol(IMainScreenDataProtocol* aProtocol, IMain
         
         if(node)
         {
-            CCLabelTTF* label = dynamic_cast<CCLabelTTF*>(node->getChildByTag(TAG_LABEL_COORDINATE));
+            CCTextFieldTTF* label = dynamic_cast<CCTextFieldTTF*>(node->getChildByTag(TAG_LABEL_COORDINATE));
             
             if(label)
             {
                 mCoordinateLabels[i] = label;
+                label->setTag(i);
             }
             
             CCPoint pos = pos_arr[i];
             node->setPosition(pos);
             node->setAnchorPoint(ccp(0.5f,0.5f));
             
+            extension::CCScale9Sprite* spr = extension::CCScale9Sprite::create("btn_opacity.png");
+            
+            if(spr)
+            {
+                cocos2d::extension::CCControlButton* btn = cocos2d::extension::CCControlButton::create(spr);
+                CCSize size = node->getContentSize();
+                
+                btn->setPreferredSize(size);
+                btn->setPosition(ccp(size.width/2.f, size.height));
+
+                btn->setTag(i);
+                btn->setEnabled(true);
+                btn->addTargetWithActionForControlEvents(this, cccontrol_selector(CMainScreenView::onBtnClick), CCControlEventTouchDown);
+                
+                node->addChild(btn);
+            }
+
             this->addChild(node, eLabelNodeOrder);
         }
     }
@@ -154,10 +226,41 @@ bool CMainScreenView::initWithProtocol(IMainScreenDataProtocol* aProtocol, IMain
     return true;
 }
 
+void CMainScreenView::onBtnClick(cocos2d::CCObject * pSender, cocos2d::extension::CCControlEvent pCCControlEvent)
+{
+    TRACE_METHOD
+    CCControlButton* btn = dynamic_cast<CCControlButton*>(pSender);
+    TRACE_VAR_INT(btn->getTag())
+    int tag = btn->getTag();
+    
+    if(tag == eMyLabelIndex)
+        return;
+    
+    closeTextField();
+    
+    mCurrentOpen = mCoordinateLabels[tag];
+    mCurrentOpen->attachWithIME();
+
+}
+
+void CMainScreenView::closeTextField()
+{
+    if(mCurrentOpen)
+    {
+        mCurrentOpen->detachWithIME();
+        mCurrentOpen = NULL;
+    }
+}
+
 void CMainScreenView::doUpdateView()
 {
     TRACE_METHOD
+    TRACE("CMainScreenView::doUpdateView 1")
     
+    if(CAppCore::shared()->getIsBackground())
+        return;
+    
+    TRACE("CMainScreenView::doUpdateView 2")
     std::string str = mDataProtocol->getKeyCoordinate();
     mCoordinateLabels[eKeyLabelIndex]->setString(str.c_str());
     

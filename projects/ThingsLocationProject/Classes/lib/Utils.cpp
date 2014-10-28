@@ -32,6 +32,15 @@ int hash(std::string const& key)
 	return hashVal;
 }
 
+int gpsDistance(const CGPSPoint& aPointFirst, const CGPSPoint& aPointSecond)
+{
+    double _altitude = aPointFirst.getAltitude() - aPointSecond.getAltitude();
+    double _latitude = aPointFirst.getLatitude() - aPointSecond.getLatitude();
+    double _longitude = aPointFirst.getLongitude() - aPointSecond.getLongitude();
+    
+    return sqrtf(_altitude*_altitude + _latitude*_latitude + _longitude*_longitude);
+}
+    
 short byteToShort(unsigned const char* aByte)
 {
    return ((aByte[1] << 8) | aByte[0]);

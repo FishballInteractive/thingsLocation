@@ -133,11 +133,16 @@ bool AppDelegate::applicationDidFinishLaunching()
     return true;
 }
 
+#include "CAppCore.h"
+#include "NoticationEvents.h"
+
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground()
 {
     CCDirector::sharedDirector()->stopAnimation();
 
+    CAppCore::shared()->setIsBackground(true);
+    CAppCore::shared()->getNotificationCenter()->notify(eApplicationDidEnterBackground);
 }
 
 // this function will be called when the app is active again
@@ -146,5 +151,7 @@ void AppDelegate::applicationWillEnterForeground()
     CCDirector::sharedDirector()->startAnimation();
 
     CCTextureCache::sharedTextureCache()->reloadAllTextures();
-
+    
+    CAppCore::shared()->setIsBackground(false);
+    CAppCore::shared()->getNotificationCenter()->notify(eApplicationWillEnterForeground);
 }

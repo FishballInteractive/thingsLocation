@@ -1,10 +1,3 @@
-//
-//  INotificationObserver.h
-//  
-//
-//  Created by Kirill_Mag on 10.06.13.
-//
-//
 
 #ifndef _INotificationObserver_h
 #define _INotificationObserver_h

@@ -258,6 +258,10 @@
 		8AC6BEA919D2F12F001CD6A7 /* CValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BE9F19D2F12F001CD6A7 /* CValue.cpp */; };
 		8AC6BEAA19D2F12F001CD6A7 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BEA419D2F12F001CD6A7 /* Utils.cpp */; };
 		8AC6BEB219D2F2C5001CD6A7 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6BEB119D2F2C5001CD6A7 /* jsoncpp.cpp */; };
+		8AC6FD4E19FFC90F00C52D3A /* CPushNotificationHelper_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6FD4D19FFC90F00C52D3A /* CPushNotificationHelper_ios.mm */; };
+		8AC6FD5619FFC91B00C52D3A /* CPushNotification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6FD5019FFC91B00C52D3A /* CPushNotification.cpp */; };
+		8AC6FD5719FFC91B00C52D3A /* CPushNotificationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6FD5219FFC91B00C52D3A /* CPushNotificationManager.cpp */; };
+		8AC6FD5B19FFCA3800C52D3A /* ExtensionUtils_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AC6FD5A19FFCA3800C52D3A /* ExtensionUtils_ios.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -826,6 +830,17 @@
 		8AC6BEAD19D2F19B001CD6A7 /* INotificationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INotificationObserver.h; sourceTree = "<group>"; };
 		8AC6BEB019D2F2C5001CD6A7 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		8AC6BEB119D2F2C5001CD6A7 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		8AC6FD4C19FFC90F00C52D3A /* CPushNotificationHelper_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPushNotificationHelper_ios.h; sourceTree = "<group>"; };
+		8AC6FD4D19FFC90F00C52D3A /* CPushNotificationHelper_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CPushNotificationHelper_ios.mm; sourceTree = "<group>"; };
+		8AC6FD5019FFC91B00C52D3A /* CPushNotification.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPushNotification.cpp; sourceTree = "<group>"; };
+		8AC6FD5119FFC91B00C52D3A /* CPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPushNotification.h; sourceTree = "<group>"; };
+		8AC6FD5219FFC91B00C52D3A /* CPushNotificationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPushNotificationManager.cpp; sourceTree = "<group>"; };
+		8AC6FD5319FFC91B00C52D3A /* CPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPushNotificationManager.h; sourceTree = "<group>"; };
+		8AC6FD5419FFC91B00C52D3A /* IPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPushNotification.h; sourceTree = "<group>"; };
+		8AC6FD5519FFC91B00C52D3A /* IPushNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPushNotificationHelper.h; sourceTree = "<group>"; };
+		8AC6FD5919FFCA3800C52D3A /* ExtensionUtils_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionUtils_ios.h; sourceTree = "<group>"; };
+		8AC6FD5A19FFCA3800C52D3A /* ExtensionUtils_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExtensionUtils_ios.mm; sourceTree = "<group>"; };
+		8AC6FD5C19FFEE9500C52D3A /* NoticationEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticationEvents.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -2043,6 +2058,7 @@
 				8A359DB619E94C0E006C3D76 /* CMainScreenController.h */,
 				8A359DB819E94C26006C3D76 /* CMainScreenView.cpp */,
 				8A359DB919E94C26006C3D76 /* CMainScreenView.h */,
+				8AC6FD5C19FFEE9500C52D3A /* NoticationEvents.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -2050,8 +2066,10 @@
 		8AC6BE9719D2F12F001CD6A7 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				8AC6FD4F19FFC91B00C52D3A /* push_notifications */,
 				8AC6BE9819D2F12F001CD6A7 /* CNotificationCenter.cpp */,
 				8AC6BE9919D2F12F001CD6A7 /* CNotificationCenter.h */,
+				8AC6FD4919FFC90F00C52D3A /* platforms */,
 				8AC6BEAE19D2F2C5001CD6A7 /* third_part */,
 				8AC6BEAB19D2F19B001CD6A7 /* interface */,
 				8AC6BE9A19D2F12F001CD6A7 /* data */,
@@ -2108,6 +2126,46 @@
 				8AC6BEB119D2F2C5001CD6A7 /* jsoncpp.cpp */,
 			);
 			path = jsoncpp;
+			sourceTree = "<group>";
+		};
+		8AC6FD4919FFC90F00C52D3A /* platforms */ = {
+			isa = PBXGroup;
+			children = (
+				8AC6FD4B19FFC90F00C52D3A /* ios */,
+			);
+			path = platforms;
+			sourceTree = "<group>";
+		};
+		8AC6FD4B19FFC90F00C52D3A /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				8AC6FD5819FFCA3800C52D3A /* utils */,
+				8AC6FD4C19FFC90F00C52D3A /* CPushNotificationHelper_ios.h */,
+				8AC6FD4D19FFC90F00C52D3A /* CPushNotificationHelper_ios.mm */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		8AC6FD4F19FFC91B00C52D3A /* push_notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8AC6FD5019FFC91B00C52D3A /* CPushNotification.cpp */,
+				8AC6FD5119FFC91B00C52D3A /* CPushNotification.h */,
+				8AC6FD5219FFC91B00C52D3A /* CPushNotificationManager.cpp */,
+				8AC6FD5319FFC91B00C52D3A /* CPushNotificationManager.h */,
+				8AC6FD5419FFC91B00C52D3A /* IPushNotification.h */,
+				8AC6FD5519FFC91B00C52D3A /* IPushNotificationHelper.h */,
+			);
+			path = push_notifications;
+			sourceTree = "<group>";
+		};
+		8AC6FD5819FFCA3800C52D3A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				8AC6FD5919FFCA3800C52D3A /* ExtensionUtils_ios.h */,
+				8AC6FD5A19FFCA3800C52D3A /* ExtensionUtils_ios.mm */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2205,6 +2263,7 @@
 				15C0B571196D412F007F909D /* UILayoutParameter.cpp in Sources */,
 				15A3D9021682F7D5002FB0C5 /* b2CollidePolygon.cpp in Sources */,
 				15A3D9031682F7D5002FB0C5 /* b2Collision.cpp in Sources */,
+				8AC6FD5B19FFCA3800C52D3A /* ExtensionUtils_ios.mm in Sources */,
 				15C0B56C196D412F007F909D /* CCComRender.cpp in Sources */,
 				15C0B561196D412F007F909D /* CCColliderDetector.cpp in Sources */,
 				15A3D9041682F7D5002FB0C5 /* b2Distance.cpp in Sources */,
@@ -2230,6 +2289,7 @@
 				15A3D9131682F7D5002FB0C5 /* b2Fixture.cpp in Sources */,
 				15C0B55C196D412F007F909D /* CCBatchNode.cpp in Sources */,
 				15A3D9141682F7D5002FB0C5 /* b2Island.cpp in Sources */,
+				8AC6FD5619FFC91B00C52D3A /* CPushNotification.cpp in Sources */,
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
 				15C0B582196D412F007F909D /* CocoLoader.cpp in Sources */,
@@ -2282,6 +2342,7 @@
 				15C0B57C196D412F007F909D /* UILabelAtlas.cpp in Sources */,
 				15A3D99C1682F7F9002FB0C5 /* cpPinJoint.c in Sources */,
 				15C0B55F196D412F007F909D /* CCDisplayManager.cpp in Sources */,
+				8AC6FD5719FFC91B00C52D3A /* CPushNotificationManager.cpp in Sources */,
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,
@@ -2379,6 +2440,7 @@
 				15A3DA551682F826002FB0C5 /* CCEditBox.cpp in Sources */,
 				15C0B577196D412F007F909D /* UIScrollView.cpp in Sources */,
 				15A3DA571682F826002FB0C5 /* CCEditBoxImplIOS.mm in Sources */,
+				8AC6FD4E19FFC90F00C52D3A /* CPushNotificationHelper_ios.mm in Sources */,
 				15A3DA591682F826002FB0C5 /* CCScrollView.cpp in Sources */,
 				15A3DA5A1682F826002FB0C5 /* CCSorting.cpp in Sources */,
 				15A3DA5B1682F826002FB0C5 /* CCTableView.cpp in Sources */,

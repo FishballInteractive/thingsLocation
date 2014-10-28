@@ -11,6 +11,8 @@
 
 class CAppData;
 class IGPSManager;
+class CPushNotificationManager;
+class INotificationCenter;
 
 class IAppCore
 {
@@ -20,6 +22,10 @@ public:
     virtual CAppData* getAppData() = 0;
     
     virtual IGPSManager* getGPSManager() = 0;
+    
+    virtual INotificationCenter* getNotificationCenter() = 0;
+    
+    virtual CPushNotificationManager* getPushNotificationManager() = 0;
 };
 
 #endif

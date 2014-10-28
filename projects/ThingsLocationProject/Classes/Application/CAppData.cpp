@@ -24,3 +24,28 @@ CAppData::~CAppData()
     TRACE_DEALLOC
 
 }
+
+
+void CAppData::setKeyCoordinate(const CGPSPoint& aPoint)
+{
+    if(!aPoint.getIsValid())
+        return;
+    
+    mKeyCoordinate = aPoint;
+}
+
+void CAppData::setCarCoordinate(const CGPSPoint& aPoint)
+{
+    if(!aPoint.getIsValid())
+        return;
+    
+    mCarCoordinate = aPoint;
+}
+
+void CAppData::setMyCoordinate(const CGPSPoint& aPoint)
+{
+    if(!aPoint.getIsValid())
+        return;
+    
+    mMyCoordinate = aPoint;
+}
